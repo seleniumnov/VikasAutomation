@@ -41,14 +41,14 @@ public class GenericMethods extends Reports {
 	public static void input(WebElement ele, String testData, String fieldName) {
 
 		try {
-			isElementDisplayed(ele);
+			//isElementDisplayed(ele);
 			ele.click();
 			ele.clear();
 			ele.sendKeys(testData);
 			logger.log(Status.INFO, "Entered " + testData + " in " + fieldName);
 		} catch (Exception e) {
 
-			Assert.fail(e.getMessage());
+			e.printStackTrace();
 		}
 
 	}
