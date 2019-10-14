@@ -1,5 +1,7 @@
 package com.automation.testcases;
 
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -7,10 +9,12 @@ import com.automation.utilities.GenericMethods;
 import com.aventstack.extentreports.Status;
 
 import applicationPages.LoginPage;
+import testDataGenerator.ReadTestData;
 
 public class SampleTest extends GenericMethods {
 
-	
+	public static Map<String, String> testData = ReadTestData.getData("Data", "TC001");
+
 	@Test(priority = 1)
 	public void login() {
 
@@ -27,8 +31,8 @@ public class SampleTest extends GenericMethods {
 
 		LoginPage login = new LoginPage(driver);
 
-		input(login.getUserName(), "admin", "User Name");
-		
+		input(login.getUserName(), testData.get("UserName"), "User Name");
+
 		Assert.fail("Failing");
 
 	}
